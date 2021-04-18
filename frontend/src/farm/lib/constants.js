@@ -4,7 +4,7 @@ export const contractAddresses = {
     1: '0x63726dAe7C57d25e90ec829ce9a5C745Ffd984d3', // mainnet staking poll
   },
   farm: {
-    42: '0xf71476A14c6D97eDea6DA4E18E68457a2A80544C', // kovan farm contract address 
+    42: '0xfbfD615C28C669dcFF025E9C6128B30cC8277b91', // kovan farm contract address 
     1: '0xbfd181cb0c8e23b65805dded3863dce6517402a7', // mainnet
   },
   weth: {
