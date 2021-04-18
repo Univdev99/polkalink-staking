@@ -58,6 +58,8 @@ contract Farm is Ownable {
     uint256 public startBlock;
     // The block number when farming ends.
     uint256 public endBlock;
+    // Date when the user staked
+    uint256 public stakedAt;
 
     event Deposit(address indexed user, uint256 indexed pid, uint256 amount);
     event Withdraw(address indexed user, uint256 indexed pid, uint256 amount);
@@ -68,6 +70,7 @@ contract Farm is Ownable {
         rewardPerBlock = _rewardPerBlock;
         startBlock = _startBlock;
         endBlock = _startBlock;
+        stakedAt = block.timestamp;
     }
 
     // Number of LP pools
@@ -189,9 +192,18 @@ contract Farm is Ownable {
     function withdraw(uint256 _pid, uint256 _amount) public {
         PoolInfo storage pool = poolInfo[_pid];
         UserInfo storage user = userInfo[_pid][msg.sender];
-        require(user.amount >= _amount, "withdraw: can't withdraw more than deposit");
-        updatePool(_pid);
         uint256 pendingAmount = user.amount.mul(pool.accERC20PerShare).div(1e36).sub(user.rewardDebt);
+        if (block.timestamp <= stakedAt + 4 weeks) {
+            require(user.amount / 20 >= _amount, "withdraw: can't withdraw more until a month before");
+            pendingAmount = pendingAmount.div(2);
+        } else if (block.timestamp <= stakedAt + 12 weeks) {
+            require(user.amount / 2 >= _amount, "withdraw: can't withdraw more until three months before");
+            pendingAmount = pendingAmount.div(2);
+        } else {
+            require(user.amount >= _amount, "withdraw: can't withdraw more than deposit");
+        }
+        updatePool(_pid);
+        // uint256 pendingAmount = user.amount.mul(pool.accERC20PerShare).div(1e36).sub(user.rewardDebt);
         erc20Transfer(msg.sender, pendingAmount);
         user.amount = user.amount.sub(_amount);
         user.rewardDebt = user.amount.mul(pool.accERC20PerShare).div(1e36);
