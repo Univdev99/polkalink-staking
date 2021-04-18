@@ -31,7 +31,7 @@ const Farms: React.FC = () => {
             <Route exact path={path}>
               <PageHeader
                 icon={<img src={chef} height="120" />}
-                subtitle="Earn POLL tokens by staking Uniswap V2 LP Tokens."
+                subtitle="Earn POLL tokens by staking POLL Tokens."
                 title="Select Your Favorite Dishes"
               />
               <FarmCards />

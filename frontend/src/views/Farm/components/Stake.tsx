@@ -18,6 +18,7 @@ import useApprove from '../../../hooks/useApprove'
 import useModal from '../../../hooks/useModal'
 import useStake from '../../../hooks/useStake'
 import useStakedBalance from '../../../hooks/useStakedBalance'
+import useAvailableWithdrawBalance from '../../../hooks/useAvailableWithdrawBalance'
 import useTokenBalance from '../../../hooks/useTokenBalance'
 import useUnstake from '../../../hooks/useUnstake'
 
@@ -42,6 +43,7 @@ const Stake: React.FC<StakeProps> = ({ lpContract, pid, tokenName }) => {
 
   const tokenBalance = useTokenBalance(lpContract.options.address)
   const stakedBalance = useStakedBalance(pid)
+  const availableBalance = useAvailableWithdrawBalance(pid)
 
   const { onStake } = useStake(pid)
   const { onUnstake } = useUnstake(pid)
@@ -56,7 +58,7 @@ const Stake: React.FC<StakeProps> = ({ lpContract, pid, tokenName }) => {
 
   const [onPresentWithdraw] = useModal(
     <WithdrawModal
-      max={stakedBalance}
+      max={availableBalance}
       onConfirm={onUnstake}
       tokenName={tokenName}
     />,

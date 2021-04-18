@@ -187,6 +187,30 @@ export const getStaked = async (farmContract, pid, account) => {
   }
 }
 
+export const getAvailableStaked = async (farmContract, pid, account) => {
+
+  try {
+    const { amount } = await farmContract.methods
+      .userInfo(pid, account)
+      .call()
+    const stakedAt = await farmContract.methods
+      .stakedAt()
+      .call()
+    const delta = Math.floor((Math.floor(Date.now() / 1000) - stakedAt)/60/60/24);
+    let balance = amount;
+    if ( delta < 30) {
+      balance = amount / 20;
+    } else if (delta < 120) {
+      balance = amount / 2;
+    } else {
+      balance = amount;
+    }
+    return new BigNumber(balance)
+  } catch(err) {
+    return new BigNumber(0)
+  }
+}
+
 export const redeem = async (farmContract, account) => {
   let now = new Date().getTime() / 1000
   if (now >= 1597172400) {
