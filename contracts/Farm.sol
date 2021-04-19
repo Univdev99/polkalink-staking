@@ -192,17 +192,17 @@ contract Farm is Ownable {
     function withdraw(uint256 _pid, uint256 _amount) public {
         PoolInfo storage pool = poolInfo[_pid];
         UserInfo storage user = userInfo[_pid][msg.sender];
-        uint256 pendingAmount = user.amount.mul(pool.accERC20PerShare).div(1e36).sub(user.rewardDebt);
-        if (block.timestamp <= stakedAt + 4 weeks) {
-            require(user.amount / 20 >= _amount, "withdraw: can't withdraw more until a month before");
-            pendingAmount = pendingAmount.div(2);
-        } else if (block.timestamp <= stakedAt + 12 weeks) {
-            require(user.amount / 2 >= _amount, "withdraw: can't withdraw more until three months before");
-            pendingAmount = pendingAmount.div(2);
-        } else {
-            require(user.amount >= _amount, "withdraw: can't withdraw more than deposit");
-        }
+        require(user.amount >= _amount, "withdraw: can't withdraw more than deposit");
         updatePool(_pid);
+        uint256 pendingAmount = user.amount.mul(pool.accERC20PerShare).div(1e36).sub(user.rewardDebt);
+        if (block.timestamp <= (stakedAt + 12 weeks)) {
+            // require(user.amount.div(20) >= _amount, "withdraw: can't withdraw more until a month before");
+            pendingAmount = pendingAmount.div(2);
+        // } else if (block.timestamp <= (stakedAt + 12 weeks)) {
+        //     require(user.amount.div(2) >= _amount, "withdraw: can't withdraw more until three months before");
+            // pendingAmount = pendingAmount.div(2);
+        // } else {
+        }
         // uint256 pendingAmount = user.amount.mul(pool.accERC20PerShare).div(1e36).sub(user.rewardDebt);
         erc20Transfer(msg.sender, pendingAmount);
         user.amount = user.amount.sub(_amount);
