@@ -38,7 +38,7 @@ const Harvest: React.FC<HarvestProps> = ({ pid }) => {
             <Value value={getBalanceNumber(earnings, 18)} decimals={3} />
             <Label text="POLL Earned" />
           </StyledCardHeader>
-          <StyledCardActions>
+          {/* <StyledCardActions>
             <Button
               disabled={!earnings.toNumber() || pendingTx}
               text={pendingTx ? 'Collecting POLL' : 'Harvest'}
@@ -50,7 +50,7 @@ const Harvest: React.FC<HarvestProps> = ({ pid }) => {
                 setPendingTx(false)
               }}
             />
-          </StyledCardActions>
+          </StyledCardActions> */}
         </StyledCardContentInner>
       </CardContent>
     </Card>
