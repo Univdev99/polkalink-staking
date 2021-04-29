@@ -186,7 +186,7 @@ const FarmCard: React.FC<FarmCardProps> = ({ farm }) => {
                 {farm.wethAmount
                   ? (farm.wethAmount.toNumber() || 0).toLocaleString('en-US')
                   : '-'}{' '}
-                ETH
+                POLL
               </span>
             </StyledInsight>
           </StyledContent>
