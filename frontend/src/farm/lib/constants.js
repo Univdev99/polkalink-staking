@@ -1,11 +1,11 @@
 export const contractAddresses = {
   erc20: {
     42: '0x9c55b6e6DE44b9D3D3d551C0cBB0Ee1c12A4b976',//kovan staking/ poll
-    1: '0x63726dAe7C57d25e90ec829ce9a5C745Ffd984d3', // mainnet staking poll
+    1: '0x9c55b6e6de44b9d3d3d551c0cbb0ee1c12a4b976', // mainnet staking poll
   },
   farm: {
     42: '0xC213071d1b98984a35fD9B79Db654110f20494F6', // kovan farm contract address 
-    1: '0xbfd181cb0c8e23b65805dded3863dce6517402a7', // mainnet
+    1: '0x4aad41710554eEFbc9d22F2e8FE74b1d0c391C77', // mainnet
   },
   weth: {
     42: '0xa050886815cfc52a24b9c4ad044ca199990b6690', 
@@ -18,11 +18,11 @@ export const supportedPools = [
     pid: 0,
     lpAddresses: {
       42: '0x9c55b6e6DE44b9D3D3d551C0cBB0Ee1c12A4b976', // kovan staking / dai token address
-      1: '0x856e90282961c0e7f6693fd2f62b35d5df9783cf',  //mainnet
+      1: '0x9c55b6e6de44b9d3d3d551c0cbb0ee1c12a4b976',  //mainnet
     },
     tokenAddresses: {
       42: '0x9c55b6e6DE44b9D3D3d551C0cBB0Ee1c12A4b976', // kovan staking / poll
-      1: '0x63726dAe7C57d25e90ec829ce9a5C745Ffd984d3', //mainnet
+      1: '0x9c55b6e6de44b9d3d3d551c0cbb0ee1c12a4b976', //mainnet
     },
     name: 'POLL-POLL',
     symbol: 'POLL-POLL',
