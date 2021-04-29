@@ -41,7 +41,7 @@
     "fund": "45000000000000000000000",
     "lp": [
       {
-        "address": "0x9c55b6e6de44b9d3d3d551c0cbb0ee1c12a4b976",
+        "address": "0x9c55b6e6DE44b9D3D3d551C0cBB0Ee1c12A4b976",
         "allocPoint": 120
       }
     ]

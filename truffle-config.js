@@ -21,7 +21,6 @@ module.exports = {
                 )
             },
             network_id: 1,
-            gas: 12450000,
             gasPrice: 200000000000,
         },
         kovan: {
