@@ -3,9 +3,7 @@ import styled from 'styled-components'
 import {contractAddresses} from '../../../farm/lib/constants';
 import {getEthChainInfo} from "../../../utils/getEthChainInfo";
 import githubLogo from '../../../assets/img/github.png'
-import tgLogo from '../../../assets/img/Telegram.png'
-import twLogo from '../../../assets/img/Twitter.png'
-import {GITHUB, TELEGRAM, TWITTER} from '../../../constants/config';
+import {GITHUB} from '../../../constants/config';
 
 const {
     ethscanType,
@@ -14,27 +12,51 @@ const {
 
 const contractAddressesTemp = contractAddresses as {[index: string]:any};
 
-const Nav: React.FC = () => {
+const Link: React.FC = () => {
     return (
     <StyledNav>
       <StyledLink
         target="_blank"
-        href={TELEGRAM}
+        href={`https://boost.polkalink.io`}
       >
-        <img src={tgLogo} height="100" />
+        Polkalink Boost
       </StyledLink>
       <StyledLink
         target="_blank"
-        href={TWITTER}
+        href={`https://www.polkalink.io#Ecosystem`}
       >
-        <img src={twLogo} height="100" />
+        Ecosystem
       </StyledLink>
-      {/* <StyledLink
+      <StyledLink
+        target="_blank"
+        href={`https://www.polkalink.io/about-us`}
+      >
+        Team
+      </StyledLink>
+      <StyledLink
+        target="_blank"
+        href={`https://www.polkalink.io/about-us`}
+      >
+        About Us
+      </StyledLink>
+      <StyledLink
+        target="_blank"
+        href={`https://www.polkalink.io#FAQ`}
+      >
+        FAQs
+      </StyledLink>
+      <StyledLink
+        target="_blank"
+        href={`mailto:admin@polkalink.io`}
+      >
+        Contact
+      </StyledLink>
+      <StyledLink
         target="_blank"
         href={GITHUB}
       >
         <img src={githubLogo} />
-      </StyledLink> */}
+      </StyledLink>
     </StyledNav>
   )
 }
@@ -45,7 +67,9 @@ const StyledNav = styled.nav`
 `
 
 const StyledLink = styled.a`
-  color: ${(props) => props.theme.color.grey[400]};
+  color: #edc900;
+  font-size: 16px;
+  font-weight: 400;
   padding-left: ${(props) => props.theme.spacing[3]}px;
   padding-right: ${(props) => props.theme.spacing[3]}px;
   text-decoration: none;
@@ -53,8 +77,8 @@ const StyledLink = styled.a`
     color: ${(props) => props.theme.color.grey[500]};
   }
   img {
-    height: 30px;
+    height: 19px;
   }
 `
 
-export default Nav
+export default Link

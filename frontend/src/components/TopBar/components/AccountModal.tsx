@@ -21,6 +21,7 @@ import Value from '../../Value'
 import {getEthChainInfo} from "../../../utils/getEthChainInfo";
 
 import imagePOLL from '../../../assets/img/polkalinkstake_logo.png'
+import { black } from '../../../theme/colors'
 
 const {
   ethscanType
@@ -47,7 +48,7 @@ const AccountModal: React.FC<ModalProps> = ({ onDismiss }) => {
         <div style={{ display: 'flex' }}>
           <StyledBalanceWrapper>
             <CardIcon>
-              <img src={imagePOLL} height="100" style={{ marginTop: -4 }} />
+              <img src={imagePOLL} height="100" style={{ marginTop: -4, backgroundColor: black }} />
             </CardIcon>
             <StyledBalance>
               <Value value={getBalanceNumber(erc20Balance, 18)} />
