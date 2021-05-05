@@ -95,7 +95,7 @@ const Farm: React.FC<FarmProps> = ({ farmId }) => {
             <Button
                 text="Open Uniswap Pool"
                 backgroundColor='#ed007a'
-                size="xs"
+                size="sm"
                 href='https://info.uniswap.org/token/0x63726dAe7C57d25e90ec829ce9a5C745Ffd984d3'
             />
         </div>

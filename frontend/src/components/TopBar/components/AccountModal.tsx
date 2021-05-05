@@ -50,7 +50,7 @@ const AccountModal: React.FC<ModalProps> = ({ onDismiss }) => {
               <img src={imagePOLL} height="100" style={{ marginTop: -4 }} />
             </CardIcon>
             <StyledBalance>
-              <Value value={getBalanceNumber(erc20Balance, 10)} />
+              <Value value={getBalanceNumber(erc20Balance, 18)} />
               <Label text="POLL ERC20 Balance" />
             </StyledBalance>
           </StyledBalanceWrapper>

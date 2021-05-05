@@ -24,8 +24,8 @@ export const supportedPools = [
       42: '0x9c55b6e6DE44b9D3D3d551C0cBB0Ee1c12A4b976', // kovan staking / poll
       1: '0x9c55b6e6de44b9d3d3d551c0cbb0ee1c12a4b976', //mainnet
     },
-    name: 'POLL-POLL',
-    symbol: 'POLL-POLL',
+    name: 'POLL',
+    symbol: 'POLL',
     tokenSymbol: 'POLL',
     icon: '',
     pool: '100%',

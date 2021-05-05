@@ -40,7 +40,7 @@ const StyledLogoWrapper = styled.div`
 `
 
 const StyledTopBar = styled.div`
-background: rgb(23, 5, 75);  
+background: rgb(0,0,0);
 `
 
 const StyledTopBarInner = styled.div`

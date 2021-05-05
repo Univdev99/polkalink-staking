@@ -43,14 +43,14 @@ const Button: React.FC<ButtonProps> = ({
       break
     case 'default':
     default:
-      buttonColor = color.primary.main
+      buttonColor = color.black
   }
 
   let boxShadow: string
   let buttonSize: number
   let buttonPadding: number
   let fontSize: number
-  let minHeight: number = 45
+  let minHeight: number = 56
   switch (size) {
     case 'xs':
       minHeight = 36
@@ -60,6 +60,8 @@ const Button: React.FC<ButtonProps> = ({
       buttonPadding = spacing[3]
       buttonSize = 36
       fontSize = 14
+      backgroundColor = `#edc900;`
+      
       break
     case 'lg':
       boxShadow = `6px 6px 12px ${color.grey[300]},
@@ -67,15 +69,18 @@ const Button: React.FC<ButtonProps> = ({
       buttonPadding = spacing[4]
       buttonSize = 72
       fontSize = 16
+      backgroundColor = `#edc900;`
       break
     case 'md':
     default:
-      boxShadow = `6px 6px 12px ${color.grey[300]},
-        -12px -12px 24px -2px ${color.grey[100]}ff;`
+      boxShadow = `4px 4px 8px ${color.grey[300]},
+        -8px -8px 16px ${color.grey[100]}FF;`
 
-      buttonPadding = spacing[4]
-      buttonSize = 45
-      fontSize = 16
+      buttonPadding = spacing[3]
+      buttonSize = 56
+      fontSize = 14
+      backgroundColor=`#3353d7;`
+      variant="secondary"
   }
 
   const ButtonChild = useMemo(() => {
@@ -134,13 +139,13 @@ const StyledButton = styled.button<StyledButtonProps>`
   border-radius: 4px;
   text-transform: capitalize;
   color: ${props => (props.disabled && `${props.theme.color.grey[300]}`) 
-    || (props.variant === 'secondary' && props.theme.color.grey[700] 
-    || (props.variant === 'tertiary' || props.backgroundColor || props.menuButton) && `${props.theme.color.white}`)
+    || (props.variant === 'secondary' && props.theme.color.white 
+    || (props.variant === 'tertiary' || props.backgroundColor || props.menuButton) && `${props.theme.color.black}`)
   };
   cursor: pointer;
   display: flex;
   font-size: ${props => props.fontSize}px;
-  font-weight: 700;
+  font-weight: 500;
   height: ${props => props.size}px;
   justify-content: center;
   outline: none;

@@ -37,6 +37,7 @@ const AccountButton: React.FC<AccountButtonProps> = (props) => {
           onClick={onPresentAccountModal}
           size="sm"
           text="My Account"
+          variant="tertiary"
           menuButton
         />
       )}

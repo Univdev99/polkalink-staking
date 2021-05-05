@@ -7,7 +7,7 @@ import logo from '../../assets/img/polkalinkstake_logo.png'
 const Logo: React.FC = () => {
   return (
     <StyledLogo to="/">
-      <img src={logo} height="80" style={{ marginTop: -4 }} />
+      <img src={logo} height="45" style={{ marginTop: -4 }} />
       {/* <strong>POLL</strong> Liquidity Mining */}
     </StyledLogo>
   )
